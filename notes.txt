@@ -1,0 +1,38 @@
+TO specify a dockerfile for build in dev env , use following command . This command can be 
+used to build docker with a custom named docker file
+------ docker build -f Dockerfile.dev .
+------ docker build -t vaibhav09dev/react-frontend -f Dockerfile.dev . (Tagged)
+
+Adding Volumes while running docker 
+------ docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app vaibhav09dev/react-frontend
+
+Docker compose commands
+docker-compose up --build 
+docker-compose down
+
+Docker attach commands
+docker attach containerId
+
+
+Steps to create your production Dockerfile 
+    Build Phase 
+        Use node:alpine
+        copy package.json
+        npm install dependencies
+        npm run build
+
+    Run Phase
+        use nginx
+        copy result of npm run build
+        start nginx to serve the content
+
+Steps for Setting up CI/CD Pipeline in Travis CI 
+    Login to Travis CI with your github account
+    Select the Repository
+    Create and configure the .travis.yml file in your codebase
+
+Whenever npm run test is command is executed , it never exits from the porgram and hangs in there , this can be a problem in Travis
+as travis waits for npm run test to complete and exit on its own .
+Hence , we can use npm run test -- -- coverage (This will execute the test , show the test coverage and exit the programs)
+
+

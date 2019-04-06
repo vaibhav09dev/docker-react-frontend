@@ -1,0 +1,14 @@
+# sudo is required for super user level access when using docker
+sudo: required
+
+#services which the Travis CI will need for your project , in this case docker is required on Travis CI. Behind the Scenes it will install DOcker
+services:
+    - docker
+
+#before install to run docker build commands. These commands are run 
+before_install:
+    - docker build -t vaibhav09dev/docker-react-frontend -f Dockerfile.dev .
+
+#script - all the commands that need to be executed to run our tests
+script:
+    - docker run vaibhav09dev/docker-react-frontend npm run test -- --coverage
