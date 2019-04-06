@@ -9,6 +9,6 @@ services:
 before_install:
     - docker build -t vaibhav09dev/docker-react-frontend -f Dockerfile.dev .
 
-#script - all the commands that need to be executed to run our tests
+#script - all the commands that need to be executed to run our tests / deployment
 script:
     - docker run vaibhav09dev/docker-react-frontend npm run test -- --coverage
