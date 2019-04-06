@@ -35,4 +35,3 @@ Whenever npm run test is command is executed , it never exits from the porgram a
 as travis waits for npm run test to complete and exit on its own .
 Hence , we can use npm run test -- -- coverage (This will execute the test , show the test coverage and exit the programs)
 
-
