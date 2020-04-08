@@ -14,6 +14,8 @@ script:
     - docker run vaibhav09dev/docker-react-frontend npm run test -- --coverage
 
 # Configuration to deploy code on AWS through Travis
+#bucket_name is the s3 bucket which is automatically created when u create elasticbeanstalk
+#access_key_id and secret is created after creating user in IAM Module in AWS console. These values are stored in travis environment variable
 deploy:
     provider: elasticbeanstalk
     region: "us-east-2"
